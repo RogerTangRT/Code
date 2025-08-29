@@ -49,14 +49,14 @@ WHERE NOT EXISTS (
 
 ## 4) Agrupar a quantidade de vendas que uma determinada Marca por Loja. 
 
-SELECT orders.id COUNT(*) AS quantidade_de_vendas
+SELECT MAX(orders.order_id), COUNT(*) AS quantidade_de_vendas
 FROM orders
 INNER JOIN stores ON (orders.store_id = stores.store_id)
 INNER JOIN order_items ON (orders.order_id = order_items.order_id)
 INNER JOIN products ON (order_items.product_id = products.product_id)
-INNER JOIN brands ON (product_id.brand_id = brands.brand_id)
-WHERE brands.brand_name = 'Determinada Marca'
-GROUP BY store_id
+INNER JOIN brand ON (products.brand_id = brand.brand_id)
+WHERE brand.brand_name = 'Marca 1'
+GROUP BY stores.store_id
 
 ## 5) Listar os Funcionarios que não estejam relacionados a um Pedido.
 
