@@ -55,8 +55,8 @@ INNER JOIN stores ON (orders.store_id = stores.store_id)
 INNER JOIN order_items ON (orders.order_id = order_items.order_id)
 INNER JOIN products ON (order_items.product_id = products.product_id)
 INNER JOIN brands ON (product_id.brand_id = brands.brand_id)
-GROUP BY store_id
 WHERE brands.brand_name = 'Determinada Marca'
+GROUP BY store_id
 
 ## 5) Listar os Funcionarios que não estejam relacionados a um Pedido.
 
