@@ -49,7 +49,7 @@ WHERE NOT EXISTS (
 
 ## 4) Agrupar a quantidade de vendas que uma determinada Marca por Loja. 
 
-SELECT MAX(orders.order_id), COUNT(*) AS quantidade_de_vendas
+SELECT COUNT(*) AS quantidade_de_vendas
 FROM orders
 INNER JOIN stores ON (orders.store_id = stores.store_id)
 INNER JOIN order_items ON (orders.order_id = order_items.order_id)
